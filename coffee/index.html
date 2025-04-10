@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brewed Traditions Coffee shop</title>
+    <meta name="description" content="Discover the rich history, culture, and craftsmanship behind exceptional coffee at Brewed Traditions">
+    <style>
+        :root {
+            --primary: #8B4513;
+            --secondary: #D2B48C;
+            --light: #FFF8DC;
+            --dark: #3e2c24;
+            --accent: #A0522D;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: var(--primary);
+            text-align: center;
+            padding: 5rem 2rem 2rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        nav {
+            background-color: rgba(255,255,255,0.95);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin: 0 1rem;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        h1, h2, h3 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: normal;
+            text-shadow: none;
+            color: var(--dark);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 2rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 2rem;
+            background-color: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .img-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .img-card {
+            flex: 1 1 48%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: #fff;
+            transition: transform 0.3s;
+        }
+
+        .img-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .img-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .img-card p {
+            padding: 1rem;
+            text-align: center;
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            margin-top: 1rem;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .hero-btn:hover {
+            background-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+            text-align: right;
+        }
+
+        .right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .brew-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .method-card {
+            flex: 1 1 300px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .method-card h4 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial {
+            flex: 1 1 300px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--secondary);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.3;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+            margin-top: 1rem;
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .img-card {
+                flex-basis: 100%;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .timeline::after {
+                left: 31px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item::after {
+                left: 21px;
+            }
+            .left, .right {
+                left: 0;
+                text-align: left;
+            }
+            .left::after, .right::after {
+                left: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Brewed Traditions</h1>
+        <p>Discover the rich history and exceptional quality behind every cup</p>
+        <a href="menu.html" class="hero-btn">Explore Our Menu</a>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#history">History</a></li>
+            <li><a href="#quality">Our Quality</a></li>
+            <li><a href="#methods">Brew Methods</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="history">
+            <h2>The Ancient Beginnings of Coffee</h2>
+            <p>Coffee's journey through history is as rich and complex as its flavor. From its legendary discovery to its global spread, coffee has shaped cultures and economies for centuries.</p>
+
+            <div class="img-section">
+                <div class="img-card">
+                    <img src="ethiopia-coffee-jebida.jpg" alt="Ethiopian coffee ceremony">
+                    <p>The traditional Ethiopian coffee ceremony, a ritual that dates back centuries</p>
+                </div>
+                <div class="img-card">
+                    <img src="download.jpg" alt="Coffee beans in Ethiopia">
+                    <p>Coffee beans being sorted in Ethiopia, the birthplace of coffee</p>
+                </div>
+            </div>
+
+            <h3>The Journey Through Time</h3>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="content">
+                        <h4>9th Century</h4>
+                        <p>Legend of Kaldi, the Ethiopian goatherd who discovered coffee when his goats became energetic after eating coffee berries.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="content">
+                        <h4>15th Century</h4>
+                        <p>Coffee cultivation and trade begins in Yemen, where Sufi monks used it to stay awake during night prayers.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="content">
+                        <h4>17th Century</h4>
+                        <p>Coffee reaches Europe through Venetian traders, with the first coffeehouse opening in Venice in 1645.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="content">
+                        <h4>18th Century</h4>
+                        <p>Coffee plants are smuggled out of the Arab world, leading to cultivation in Java, the Caribbean, and Latin America.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="content">
+                        <h4>20th Century</h4>
+                        <p>Instant coffee is invented, revolutionizing coffee consumption worldwide.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="content">
+                        <h4>21st Century</h4>
+                        <p>Third wave coffee movement emphasizes quality, sustainability, and direct trade relationships.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quality">
+            <h2>Our Commitment to Quality</h2>
+            <h3>From Bean to Cup</h3>
+            <p>At Brewed Traditions, we source only the finest specialty grade coffee beans (graded 80+ points) from ethical growers. Each batch is roasted in small quantities to bring out the optimal flavor characteristics of the bean's origin. Our roasting process is both an art and a science, carefully monitoring temperature and time to highlight each bean's unique qualities.</p>
+            <p>We maintain direct relationships with coffee farmers across Ethiopia, Colombia, Brazil, and Guatemala, ensuring fair prices and sustainable farming practices. This direct trade approach means we pay 25-30% above fair trade prices, investing in long-term partnerships that benefit both farmers and coffee lovers.</p>
+
+            <div class="img-section">
+                <div class="img-card">
+                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80" alt="Coffee farmer holding beans">
+                    <p>Our direct trade relationships ensure quality and fair compensation</p>
+                </div>
+                <div class="img-card">
+                    <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80" alt="Coffee roaster">
+                    <p>Small batch roasting for optimal flavor development</p>
+                </div>
+            </div>
+
+            <h3>The Art of Brewing</h3>
+            <p>Our baristas undergo 3 months of intensive training in the science and art of coffee preparation. From precise water temperature control (195-205°F) to proper extraction times (24-30 seconds for espresso), every detail matters in creating the perfect cup. We use only filtered water with optimal mineral content (150 ppm) to ensure the purest coffee flavor.</p>
+            
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>The attention to detail in their brewing process is unmatched. Every cup tells a story of craftsmanship and passion.</p>
+                    <p class="testimonial-author">- Sarah J., Coffee Critic</p>
+                </div>
+                <div class="testimonial">
+                    <p>As someone who's traveled the world tasting coffee, Brewed Traditions stands among the very best. Their Ethiopian Yirgacheffe is sublime.</p>
+                    <p class="testimonial-author">- Michael T., Travel Writer</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="methods">
+            <h2>Brewing Methods We Love</h2>
+            <p>Different brewing methods highlight different aspects of coffee's complex flavor profile. Here are our favorite ways to brew:</p>
+            
+            <div class="brew-methods">
+                <div class="method-card">
+                    <h4>Pour Over (V60)</h4>
+                    <img src="https://images.unsplash.com/photo-1551030173-122aabc4489c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pour over coffee" style="width:100%; height:200px; object-fit:cover; border-radius:4px; margin-bottom:1rem;">
+                    <p>Produces a clean, bright cup that highlights delicate floral and fruity notes. Ideal for light to medium roasts. Brew time: 2-3 minutes.</p>
+                </div>
+                <div class="method-card">
+                    <h4>French Press</h4>
+                    <img src="stock-of-mix-a-cup-coffee-latte-more-motive-top-view-foodgraphy-generative-ai-photo.jpg" alt="French press coffee" style="width:100%; height:200px; object-fit:cover; border-radius:4px; margin-bottom:1rem;">
+                    <p>Creates a full-bodied coffee with rich oils and intense flavor. Perfect for bold, dark roasts. Brew time: 4 minutes.</p>
+                </div>
+                <div class="method-card">
+                    <h4>AeroPress</h4>
+                    <img src="https://images.unsplash.com/photo-1534687941688-651ccaafbff8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="AeroPress coffee" style="width:100%; height:200px; object-fit:cover; border-radius:4px; margin-bottom:1rem;">
+                    <p>Versatile method that can produce espresso-like shots or clean filtered coffee. Quick and portable. Brew time: 1-2 minutes.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="contact">
+        <h3>Brewed Traditions Coffee</h3>
+        <p>BOLE BULBULA, Addis Ababa | Phone: +251938384963</p>
+        <p>Email: info@brewedtraditions.com | Hours: Mon-Fri 7am-7pm, Sat-Sun 8am-6pm</p>
+        <p>Join our coffee club for exclusive offers and brewing tips!</p>
+        <p>&copy; 2023 All Rights Reserved</p>
+    </footer>
+</body>
+</html>
